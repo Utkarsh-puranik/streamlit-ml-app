@@ -10,7 +10,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 import plotly.express as px
 
 # Title
-st.title("📊 Student Performance Prediction Dashboard")
+st.title("Student Performance Prediction Dashboard")
 
 # Sidebar
 st.sidebar.header("Settings")
@@ -41,11 +41,11 @@ data['Result'] = (data['Performance Score'] > 80).astype(int)
 data.drop('Performance Score', axis=1, inplace=True)
 
 # Preview
-st.subheader("🔍 Data Preview")
+st.subheader(" Data Preview")
 st.dataframe(data.head())
 
 # EDA (Exploratory Data Analysis)
-st.subheader("📈 Pairplot of Features vs Result")
+st.subheader("Pairplot of Features vs Result")
 fig_pair = sns.pairplot(data, hue='Result')
 plt.suptitle("Pairplot of Features vs Result", y=1.02)
 
@@ -70,7 +70,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # Model Evaluation
-st.subheader("✅ Model Evaluation")
+st.subheader("Model Evaluation")
 st.write(f"**Accuracy Score:** {accuracy_score(y_test, y_pred):.2f}")
 
 # Classification Report
@@ -86,7 +86,7 @@ result_df = pd.DataFrame({
     "Actual": y_test.values,
     "Predicted": y_pred
 })
-st.subheader("🧾 Actual vs Predicted (Test Set)")
+st.subheader("Actual vs Predicted (Test Set)")
 st.dataframe(result_df.head(15))
 
 # 7. Feature Importance/Extraction with Plotly
